@@ -1,12 +1,12 @@
 .keyboard {
-  padding: 2rem;
+  padding: 1.6rem;
 
   border-radius: 0.7rem;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 2rem;
+  gap: 1.6rem;
 
   transition: all 0.4s;
 

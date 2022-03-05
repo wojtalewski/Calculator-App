@@ -40,7 +40,7 @@
       color: $one-text-white;
       box-shadow: 0 0.3rem $one-key-shadow;
 
-      @include respond(smallest-phone) {
+      @include respond(small-phone) {
         font-size: 1.8rem;
       }
     }
@@ -61,7 +61,7 @@
       color: $one-text-white;
       box-shadow: 0 0.3rem $two-key-shadow;
 
-      @include respond(smallest-phone) {
+      @include respond(small-phone) {
         font-size: 1.8rem;
       }
     }
@@ -83,7 +83,7 @@
       color: $one-text-white;
       box-shadow: 0 0.3rem $three-key-shadow;
 
-      @include respond(smallest-phone) {
+      @include respond(small-phone) {
         font-size: 1.8rem;
       }
     }
