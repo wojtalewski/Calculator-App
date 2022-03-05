@@ -11,7 +11,7 @@ const Keyboard = () => {
       <Key value={'7'}>7</Key>
       <Key value={'8'}>8</Key>
       <Key value={'9'}>9</Key>
-      <Key del={'del'} value={'delete'}>
+      <Key del={'del'} value={'Backspace'}>
         DEL
       </Key>
       <Key value={'4'}>4</Key>
@@ -26,10 +26,10 @@ const Keyboard = () => {
       <Key value={'0'}>0</Key>
       <Key value={'/'}>/</Key>
       <Key value={'*'}>x</Key>
-      <WideKey value={'reset'} reset={'reset'}>
+      <WideKey value={'Escape'} reset={'reset'}>
         RESET
       </WideKey>
-      <WideKey value={'equals'} equals={'equals'}>
+      <WideKey value={'Enter'} equals={'equals'}>
         =
       </WideKey>
     </div>
