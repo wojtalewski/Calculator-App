@@ -29,11 +29,12 @@ const Key = ({ children, del, value }) => {
       dispatch({ type: 'SET_ACTION', payload: value })
       dispatch({ type: 'DELETE' })
     } else if (
-      currentValue.length <= 1 &&
+      currentValue.length === 1 &&
       (currentValue[0] === '0' || currentValue.length === 0) &&
       value === '0'
     ) {
       dispatch({ type: 'CLEAR' })
+      dispatch({ type: 'SET_VALUE', payload: '0,' })
     } else if (currentValue.length === 0 && value === ',') {
       dispatch({ type: 'SET_VALUE', payload: '0,' })
     } else {

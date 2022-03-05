@@ -3,9 +3,6 @@ const calculate = (currentValue = 0, prevValue, action) => {
   const num1 = +currentValue.join('').replace(',', '.')
   const num2 = +prevValue.join('').replace(',', '.')
 
-  console.log(num1)
-  console.log(num2)
-
   let result
 
   if (action === '+') {
@@ -20,7 +17,9 @@ const calculate = (currentValue = 0, prevValue, action) => {
     result = num2 / num1
   }
 
-  result = result.toFixed(10) * 1
+  if (result !== "You can't divide by 0!") {
+    result = result.toFixed(10) * 1
+  }
 
   return result.toString().replace('.', ',')
 }
