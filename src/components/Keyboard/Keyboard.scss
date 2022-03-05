@@ -1,0 +1,22 @@
+.keyboard {
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2rem;
+
+  transition: all 0.4s;
+
+  &-theme-one {
+    background-color: $one-toggle-background;
+  }
+
+  &-theme-two {
+    background-color: $two-toggle-background;
+  }
+
+  &-theme-three {
+    background-color: $three-toggle-background;
+  }
+}

@@ -1,0 +1,10 @@
+@import './mixins';
+@import './settings';
+@import './base';
+
+@import '../components/Calculator/Calculator.scss';
+@import '../components/Display/Display.scss';
+@import '../components/Header/Header.scss';
+@import '../components/Keyboard/Keyboard.scss';
+@import '../components/Key/Key.scss';
+@import '../components/WideKey/WideKey.scss';

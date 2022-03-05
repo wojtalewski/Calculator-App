@@ -1,0 +1,50 @@
+.header {
+  color: $one-text-white;
+  font-size: 1.8rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  transition: all 0.4s;
+
+  &-theme-two {
+    color: #000;
+  }
+
+  &-theme-three {
+    color: $three-text-light-yellow;
+  }
+}
+
+.toggle-group {
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+}
+
+label,
+input {
+  display: block;
+}
+
+input {
+  cursor: pointer;
+}
+
+.input-group {
+  text-align: center;
+  font-size: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

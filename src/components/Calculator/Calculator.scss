@@ -1,0 +1,30 @@
+.calculator {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.4s;
+
+  &-theme-one {
+    background-color: $one-main-background;
+  }
+
+  &-theme-two {
+    background-color: $two-main-background;
+  }
+
+  &-theme-three {
+    background-color: $three-main-background;
+  }
+}
+
+.container {
+  width: 35rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}

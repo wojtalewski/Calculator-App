@@ -1,0 +1,41 @@
+.display {
+  width: 100%;
+  color: $one-text-white;
+
+  padding: 1.8rem;
+  border-radius: 0.7rem;
+
+  transition: all 0.4s;
+
+  &-theme-one {
+    background-color: $one-screen-background;
+  }
+
+  &-theme-two {
+    background-color: $two-screen-background;
+    color: #000;
+  }
+
+  &-theme-three {
+    background-color: $three-screen-background;
+    color: $three-text-light-yellow;
+  }
+}
+
+.currentValue {
+  font-size: 3.2rem;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-align: center;
+
+  &-small {
+    font-size: 1.6rem;
+  }
+}
+
+.prevValue {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
