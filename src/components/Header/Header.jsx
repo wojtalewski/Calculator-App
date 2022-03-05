@@ -16,33 +16,33 @@ const Header = () => {
         <p>Theme</p>
         <form className='form-group'>
           <div className='input-group'>
-            <label htmlFor='radio'>1</label>
+            <label htmlFor='theme-one'>1</label>
             <input
               type='radio'
               checked={theme === 'theme-one' ? true : false}
               value='theme-one'
               onChange={setTheme}
-              id='radio'
+              id='theme-one'
             />
           </div>
           <div className='input-group'>
-            <label htmlFor='radio'>2</label>
+            <label htmlFor='theme-two'>2</label>
             <input
               type='radio'
               checked={theme === 'theme-two' ? true : false}
               value='theme-two'
               onChange={setTheme}
-              id='radio'
+              id='theme-two'
             />
           </div>
           <div className='input-group'>
-            <label htmlFor='radio'>3</label>
+            <label htmlFor='theme-three'>3</label>
             <input
               type='radio'
               checked={theme === 'theme-three' ? true : false}
               value='theme-three'
               onChange={setTheme}
-              id='radio'
+              id='theme-three'
             />
           </div>
         </form>
