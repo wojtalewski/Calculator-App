@@ -33,15 +33,7 @@
   text-align: center;
 
   &-small {
-    font-size: 1.6rem;
-  }
-
-  @include respond(small-phone) {
-    font-size: 4.2rem;
-  }
-
-  @include respond(smallest-phone) {
-    font-size: 6.4rem;
+    font-size: 1.8rem;
   }
 }
 
