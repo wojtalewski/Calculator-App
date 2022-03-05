@@ -10,6 +10,7 @@ export const CalculatorProvider = ({ children }) => {
     currentValue: [],
     prevValue: [],
     action: '',
+    buttonDisabled: false,
     theme: theme || 'theme-one',
   }
 

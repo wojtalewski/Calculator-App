@@ -29,6 +29,14 @@
   overflow: hidden;
   text-align: center;
 
+  @include respond(small-phone) {
+    font-size: 4.2rem;
+  }
+
+  @include respond(smallest-phone) {
+    font-size: 6.4rem;
+  }
+
   &-small {
     font-size: 1.6rem;
   }
@@ -38,4 +46,8 @@
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
   text-align: left;
+
+  @include respond(smallest-phone) {
+    font-size: 2.4rem;
+  }
 }

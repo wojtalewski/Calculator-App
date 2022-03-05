@@ -18,7 +18,17 @@ Breakpoint argument choices:
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
+    @media only screen and (max-width: 26.57em) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-phone {
     @media only screen and (max-width: 23.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == smallest-phone {
+    @media only screen and (max-width: 20em) {
       @content;
     }
   }

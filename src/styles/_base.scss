@@ -10,6 +10,17 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
   box-sizing: border-box;
+
+  @include respond(phone) {
+    font-size: 75%;
+  }
+
+  @include respond(small-phone) {
+    font-size: 62.5%;
+  }
+  @include respond(smallest-phone) {
+    font-size: 50%;
+  }
 }
 
 body {

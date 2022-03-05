@@ -7,10 +7,12 @@ const Display = () => {
 
   return (
     <div className={`display display-${theme}`}>
-      {prevValue.length > 0 && (
+      {prevValue.length > 0 ? (
         <p className='prevValue'>
           {prevValue} {action}
         </p>
+      ) : (
+        <p className='prevValue'>{''}</p>
       )}
       <p
         className={

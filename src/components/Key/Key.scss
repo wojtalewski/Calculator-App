@@ -15,6 +15,10 @@
 
   transition: all 0.4s;
 
+  @include respond(smallest-phone) {
+    font-size: 3.2rem;
+  }
+
   &:active {
     box-shadow: none;
     transform: translateY(0.3rem);
@@ -29,6 +33,10 @@
       font-size: 1.2rem;
       color: $one-text-white;
       box-shadow: 0 0.3rem $one-key-shadow;
+
+      @include respond(smallest-phone) {
+        font-size: 1.8rem;
+      }
     }
   }
   &-theme-two {
@@ -40,6 +48,10 @@
       font-size: 1.2rem;
       color: $one-text-white;
       box-shadow: 0 0.3rem $two-key-shadow;
+
+      @include respond(smallest-phone) {
+        font-size: 1.8rem;
+      }
     }
   }
   &-theme-three {
@@ -52,6 +64,10 @@
       font-size: 1.2rem;
       color: $one-text-white;
       box-shadow: 0 0.3rem $three-key-shadow;
+
+      @include respond(smallest-phone) {
+        font-size: 1.8rem;
+      }
     }
   }
 }

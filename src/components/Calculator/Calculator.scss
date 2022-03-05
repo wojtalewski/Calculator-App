@@ -2,11 +2,10 @@
   min-width: 100vw;
   min-height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &-theme-one {
     background-color: $one-main-background;
@@ -22,9 +21,17 @@
 }
 
 .container {
-  width: 35rem;
+  max-width: 35rem;
 
-  display: flex;
-  flex-direction: column;
+  @include respond(phone) {
+    padding: 1.8rem;
+    height: 100vh;
+    max-width: 100vw;
+  }
+
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
   gap: 1.6rem;
+  align-content: center;
+  justify-content: center;
 }
