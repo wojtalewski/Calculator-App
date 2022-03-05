@@ -3,12 +3,12 @@ const calculatorReducer = (state, action) => {
     case 'SET_VALUE':
       return {
         ...state,
-        currentValue: [...state.currentValue, action.payload],
+        currentValue: state.currentValue + action.payload,
       }
     case 'SET_PREV_VALUE':
       return {
         ...state,
-        prevValue: [...action.payload],
+        prevValue: action.payload,
       }
     case 'SET_ACTION':
       return {
@@ -18,13 +18,13 @@ const calculatorReducer = (state, action) => {
     case 'DELETE':
       return {
         ...state,
-        currentValue: [],
+        currentValue: '',
       }
     case 'CLEAR':
       return {
         ...state,
-        currentValue: [],
-        prevValue: [],
+        currentValue: '',
+        prevValue: '',
         action: '',
       }
     case 'SET_THEME':

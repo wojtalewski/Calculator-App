@@ -7,22 +7,22 @@ const Display = () => {
 
   return (
     <div className={`display display-${theme}`}>
-      {prevValue.length > 0 ? (
-        <p className='prevValue'>
+      {prevValue !== '' ? (
+        <div className='prevValue'>
           {prevValue} {action}
-        </p>
+        </div>
       ) : (
-        <p className='prevValue'>{''}</p>
+        <div className='prevValue'>{''}</div>
       )}
-      <p
+      <div
         className={
           currentValue.length > 10
             ? 'currentValue currentValue-small'
             : 'currentValue'
         }
       >
-        {currentValue.length > 0 ? currentValue : 0}
-      </p>
+        {currentValue !== '' ? currentValue : 0}
+      </div>
     </div>
   )
 }

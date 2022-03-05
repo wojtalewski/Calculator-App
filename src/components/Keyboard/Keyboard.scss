@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  justify-items: center;
   gap: 1.6rem;
 
   transition: all 0.4s;
