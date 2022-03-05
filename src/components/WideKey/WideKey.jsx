@@ -1,24 +1,20 @@
 import { useContext } from 'react'
+import useKeyPress from '../../hooks/useKeyPress'
 import CalculatorContext from '../../context/CalculatorContext'
-import calculate from '../../context/calculatorActions'
+import dispatchAction from '../../context/calculatorActions'
 
 const WideKey = ({ children, reset, equals, value }) => {
   const { theme, dispatch, currentValue, prevValue, action } =
     useContext(CalculatorContext)
 
+  const handlePress = () => {
+    return dispatchAction(currentValue, prevValue, action, value, dispatch)
+  }
+
+  useKeyPress(value, handlePress)
+
   const handleClick = (value) => {
-    if (value === 'reset') {
-      dispatch({ type: 'CLEAR' })
-    } else if (value === 'equals' && prevValue !== '') {
-      const calculatedValue = calculate(currentValue, prevValue, action)
-      dispatch({ type: 'CLEAR' })
-      dispatch({
-        type: 'SET_VALUE',
-        payload: calculatedValue,
-      })
-      dispatch({ type: 'SET_PREV_VALUE', payload: '' })
-      dispatch({ type: 'SET_ACTION', payload: '=' })
-    }
+    dispatchAction(currentValue, prevValue, action, value, dispatch)
   }
 
   return (
