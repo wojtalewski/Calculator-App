@@ -4,7 +4,7 @@ import Key from '../Key/Key'
 import WideKey from '../WideKey/WideKey'
 
 const Keyboard = () => {
-  const { theme, dispatch } = useContext(CalculatorContext)
+  const { theme } = useContext(CalculatorContext)
 
   return (
     <div className={`keyboard keyboard-${theme}`}>
