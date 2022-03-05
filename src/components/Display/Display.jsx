@@ -16,7 +16,7 @@ const Display = () => {
       )}
       <p
         className={
-          currentValue.length > 15
+          currentValue.length > 10
             ? 'currentValue currentValue-small'
             : 'currentValue'
         }

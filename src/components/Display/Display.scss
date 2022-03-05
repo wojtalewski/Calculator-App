@@ -1,5 +1,4 @@
 .display {
-  width: 100%;
   color: $one-text-white;
 
   padding: 1.8rem;
@@ -23,10 +22,12 @@
 }
 
 .currentValue {
+  width: 100%;
   font-size: 3.2rem;
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
+
   text-align: center;
 
   &-small {

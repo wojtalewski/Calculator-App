@@ -8,7 +8,7 @@ const Key = ({ children, del, value }) => {
 
   const handleClick = (value) => {
     if (value === 'delete') {
-      dispatch({ type: 'DELETE' })
+      return dispatch({ type: 'DELETE' })
     } else if (
       value === '+' ||
       value === '-' ||
@@ -31,13 +31,18 @@ const Key = ({ children, del, value }) => {
     } else if (
       currentValue.length === 1 &&
       (currentValue[0] === '0' || currentValue.length === 0) &&
-      value === '0'
+      value === '0' &&
+      currentValue.length < 16
     ) {
       dispatch({ type: 'CLEAR' })
       dispatch({ type: 'SET_VALUE', payload: '0,' })
-    } else if (currentValue.length === 0 && value === ',') {
+    } else if (
+      currentValue.length === 0 &&
+      value === ',' &&
+      currentValue.length < 16
+    ) {
       dispatch({ type: 'SET_VALUE', payload: '0,' })
-    } else {
+    } else if (currentValue.length < 16) {
       dispatch({ type: 'SET_VALUE', payload: value })
     }
   }
