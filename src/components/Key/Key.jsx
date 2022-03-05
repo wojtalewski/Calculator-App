@@ -7,43 +7,43 @@ const Key = ({ children, del, value }) => {
     useContext(CalculatorContext)
 
   const handleClick = (value) => {
-    if (value === 'delete') {
-      return dispatch({ type: 'DELETE' })
-    } else if (
-      value === '+' ||
-      value === '-' ||
-      value === '*' ||
-      value === '/'
-    ) {
-      if (currentValue.length > 0 && prevValue.length === 0) {
-        dispatch({ type: 'SET_PREV_VALUE', payload: currentValue })
-      } else if (currentValue.length > 0 && prevValue.length > 0) {
-        const calculatedValue = calculate(currentValue, prevValue, action)
-        dispatch({
-          type: 'SET_PREV_VALUE',
-          payload: calculatedValue,
-        })
-        dispatch({ type: 'DELETE' })
-      }
+    switch (value) {
+      case 'delete':
+        return dispatch({ type: 'DELETE' })
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        if (prevValue !== '') {
+          const calculatedValue = calculate(currentValue, prevValue, action)
+          dispatch({ type: 'SET_PREV_VALUE', payload: calculatedValue })
+          dispatch({ type: 'SET_ACTION', payload: value })
+          dispatch({ type: 'DELETE' })
+        } else if (prevValue === '') {
+          dispatch({ type: 'SET_PREV_VALUE', payload: currentValue })
+        }
 
-      dispatch({ type: 'SET_ACTION', payload: value })
-      dispatch({ type: 'DELETE' })
-    } else if (
-      currentValue.length === 1 &&
-      (currentValue[0] === '0' || currentValue.length === 0) &&
-      value === '0' &&
-      currentValue.length < 16
-    ) {
-      dispatch({ type: 'CLEAR' })
-      dispatch({ type: 'SET_VALUE', payload: '0,' })
-    } else if (
-      currentValue.length === 0 &&
-      value === ',' &&
-      currentValue.length < 16
-    ) {
-      dispatch({ type: 'SET_VALUE', payload: '0,' })
-    } else if (currentValue.length < 16) {
-      dispatch({ type: 'SET_VALUE', payload: value })
+        dispatch({ type: 'SET_ACTION', payload: value })
+        return dispatch({ type: 'DELETE' })
+      case '0':
+        if (currentValue !== '') {
+          return dispatch({ type: 'SET_VALUE', payload: value })
+        }
+        break
+      case ',':
+        if (currentValue === '') {
+          dispatch({ type: 'SET_VALUE', payload: '0,' })
+        } else if (!currentValue.endsWith(',')) {
+          dispatch({ type: 'SET_VALUE', payload: value })
+        }
+        break
+      default:
+        if (action === '=') {
+          dispatch({ type: 'DELETE' })
+          dispatch({ type: 'SET_ACTION', payload: '' })
+        }
+
+        return dispatch({ type: 'SET_VALUE', payload: value })
     }
   }
 

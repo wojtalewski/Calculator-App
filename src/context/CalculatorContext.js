@@ -7,10 +7,9 @@ export const CalculatorProvider = ({ children }) => {
   const theme = localStorage.getItem('theme')
 
   const initialState = {
-    currentValue: [],
-    prevValue: [],
+    currentValue: '',
+    prevValue: '',
     action: '',
-    buttonDisabled: false,
     theme: theme || 'theme-one',
   }
 

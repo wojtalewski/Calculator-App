@@ -1,7 +1,10 @@
 // Calculate value
-const calculate = (currentValue = 0, prevValue, action) => {
-  const num1 = +currentValue.join('').replace(',', '.')
-  const num2 = +prevValue.join('').replace(',', '.')
+const calculate = (currentValue, prevValue, action) => {
+  const num1 = +currentValue.replace(',', '.')
+  const num2 = +prevValue.replace(',', '.')
+
+  console.log(num1)
+  console.log(num2)
 
   let result
 
