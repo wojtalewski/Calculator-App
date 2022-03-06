@@ -5,6 +5,8 @@ export const calculate = (currentValue, prevValue, action) => {
 
   let result
 
+  const divideError = "You can't divide by 0!"
+
   if (action === '+') {
     result = num1 + num2
   } else if (action === '-') {
@@ -12,12 +14,12 @@ export const calculate = (currentValue, prevValue, action) => {
   } else if (action === '*') {
     result = num2 * num1
   } else if (action === '/' && num1 === 0) {
-    result = "You can't divide by 0!"
+    throw new Error(divideError)
   } else {
     result = num2 / num1
   }
 
-  if (result !== "You can't divide by 0!") {
+  if (result !== divideError) {
     result = result.toFixed(10) * 1
   }
 
@@ -37,35 +39,62 @@ export const dispatchAction = (
     case 'Escape':
       return dispatch({ type: 'CLEAR' })
     case 'Enter':
-      if (prevValue !== '') {
-        const calculatedValue = calculate(currentValue, prevValue, action)
+      try {
+        if (prevValue !== '') {
+          const calculatedValue = calculate(currentValue, prevValue, action)
+          dispatch({ type: 'CLEAR' })
+          dispatch({
+            type: 'SET_VALUE',
+            payload: calculatedValue,
+          })
+          dispatch({ type: 'SET_PREV_VALUE', payload: '' })
+          dispatch({ type: 'SET_ACTION', payload: '=' })
+        } else {
+          dispatch({ type: 'SET_PREV_VALUE', payload: '' })
+          dispatch({ type: 'SET_ACTION', payload: '=' })
+        }
+      } catch (error) {
+        dispatch({ type: 'SET_DISABLED', payload: true })
         dispatch({ type: 'CLEAR' })
         dispatch({
           type: 'SET_VALUE',
-          payload: calculatedValue,
+          payload: error,
         })
-        dispatch({ type: 'SET_PREV_VALUE', payload: '' })
-        dispatch({ type: 'SET_ACTION', payload: '=' })
-      } else {
-        dispatch({ type: 'SET_PREV_VALUE', payload: '' })
-        dispatch({ type: 'SET_ACTION', payload: '=' })
+        setTimeout(() => {
+          dispatch({ type: 'CLEAR' })
+          dispatch({ type: 'SET_DISABLED', payload: false })
+        }, 2000)
       }
       break
     case '+':
     case '-':
     case '*':
     case '/':
-      if (prevValue !== '') {
-        const calculatedValue = calculate(currentValue, prevValue, action)
-        dispatch({ type: 'SET_PREV_VALUE', payload: calculatedValue })
-        dispatch({ type: 'SET_ACTION', payload: value })
-        dispatch({ type: 'DELETE' })
-      } else if (prevValue === '') {
-        dispatch({ type: 'SET_PREV_VALUE', payload: currentValue })
-      }
+      try {
+        if (prevValue !== '') {
+          const calculatedValue = calculate(currentValue, prevValue, action)
+          dispatch({ type: 'SET_PREV_VALUE', payload: calculatedValue })
+          dispatch({ type: 'SET_ACTION', payload: value })
+          dispatch({ type: 'DELETE' })
+        } else if (prevValue === '') {
+          dispatch({ type: 'SET_PREV_VALUE', payload: currentValue })
+        }
 
-      dispatch({ type: 'SET_ACTION', payload: value })
-      return dispatch({ type: 'DELETE' })
+        dispatch({ type: 'SET_ACTION', payload: value })
+        return dispatch({ type: 'DELETE' })
+      } catch (error) {
+        dispatch({ type: 'SET_DISABLED', payload: true })
+        dispatch({ type: 'CLEAR' })
+        dispatch({
+          type: 'SET_VALUE',
+          payload: error,
+        })
+        setTimeout(() => {
+          dispatch({ type: 'CLEAR' })
+          dispatch({ type: 'SET_DISABLED', payload: false })
+        }, 2000)
+      }
+      break
     case '0':
       if (currentValue !== '') {
         return dispatch({ type: 'SET_VALUE', payload: value })

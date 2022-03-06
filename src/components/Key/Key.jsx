@@ -4,7 +4,7 @@ import useIsKeyPressed from '../../hooks/useIsKeyPressed'
 import CalculatorContext from '../../context/CalculatorContext'
 import dispatchAction from '../../context/calculatorActions'
 
-const Key = ({ children, del, value }) => {
+const Key = ({ children, del, value, disabled }) => {
   const { theme, dispatch, currentValue, prevValue, action } =
     useContext(CalculatorContext)
 
@@ -27,6 +27,7 @@ const Key = ({ children, del, value }) => {
     <button
       className={keyPressed && targetKey === value ? newBtnClass : btnClass}
       onClick={() => handleClick(value)}
+      disabled={disabled}
     >
       {children}
     </button>

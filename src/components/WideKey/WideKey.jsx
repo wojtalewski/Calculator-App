@@ -4,7 +4,7 @@ import useIsKeyPressed from '../../hooks/useIsKeyPressed'
 import CalculatorContext from '../../context/CalculatorContext'
 import dispatchAction from '../../context/calculatorActions'
 
-const WideKey = ({ children, reset, equals, value }) => {
+const WideKey = ({ children, reset, equals, value, disabled }) => {
   const { theme, dispatch, currentValue, prevValue, action } =
     useContext(CalculatorContext)
 
@@ -29,6 +29,7 @@ const WideKey = ({ children, reset, equals, value }) => {
         keyPressed && targetKey === value ? newWideBtnClass : wideBtnClass
       }
       onClick={() => handleClick(value)}
+      disabled={disabled}
     >
       {children}
     </button>
