@@ -32,7 +32,7 @@ export const dispatchAction = (
   dispatch
 ) => {
   switch (value) {
-    case 'Backspace':
+    case 'Delete':
       return dispatch({ type: 'DELETE' })
     case 'Escape':
       return dispatch({ type: 'CLEAR' })

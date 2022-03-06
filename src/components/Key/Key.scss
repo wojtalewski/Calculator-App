@@ -44,6 +44,11 @@
         font-size: 1.8rem;
       }
     }
+
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
+    }
   }
   &-theme-two {
     background-color: $one-key-light-orange;
@@ -58,6 +63,11 @@
       @include respond(small-phone) {
         font-size: 1.8rem;
       }
+    }
+
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
     }
   }
   &-theme-three {
@@ -74,6 +84,11 @@
       @include respond(small-phone) {
         font-size: 1.8rem;
       }
+    }
+
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
     }
   }
 }

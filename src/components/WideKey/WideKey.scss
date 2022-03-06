@@ -30,6 +30,11 @@
     transform: translateY(0.3rem);
   }
 
+  &-active {
+    box-shadow: none;
+    transform: translateY(0.3rem);
+  }
+
   &-theme-one {
     background-color: $one-key-light-orange;
     box-shadow: 0 0.3rem $one-key-gray-orange;
@@ -45,10 +50,20 @@
       }
     }
 
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
+    }
+
     &-equals {
       background-color: $one-key-red;
       color: $one-text-white;
       box-shadow: 0 0.3rem $one-key-dark-red;
+
+      &-active {
+        box-shadow: none;
+        transform: translateY(0.3rem);
+      }
     }
   }
   &-theme-two {
@@ -66,10 +81,20 @@
       }
     }
 
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
+    }
+
     &-equals {
       background-color: $one-key-red;
       color: $one-text-white;
       box-shadow: 0 0.3rem $one-key-dark-red;
+
+      &-active {
+        box-shadow: none;
+        transform: translateY(0.3rem);
+      }
     }
   }
   &-theme-three {
@@ -88,10 +113,20 @@
       }
     }
 
+    &-active {
+      box-shadow: none;
+      transform: translateY(0.3rem);
+    }
+
     &-equals {
       background-color: $three-key-cyan;
       color: #000;
       box-shadow: 0 0.3rem $three-key-light-cyan;
+
+      &-active {
+        box-shadow: none;
+        transform: translateY(0.3rem);
+      }
     }
   }
 }

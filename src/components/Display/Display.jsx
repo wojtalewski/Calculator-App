@@ -7,13 +7,14 @@ const Display = () => {
 
   return (
     <div className={`display display-${theme}`}>
-      {prevValue !== '' ? (
+      {prevValue.length > 0 ? (
         <div className='prevValue'>
           {prevValue} {action}
         </div>
       ) : (
-        <div className='prevValue'>{''}</div>
+        <div className='prevValue'></div>
       )}
+
       <div
         className={
           currentValue.length > 10
