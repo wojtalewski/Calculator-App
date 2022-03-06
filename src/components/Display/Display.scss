@@ -24,6 +24,7 @@
 
 .currentValue {
   max-width: 100%;
+  min-height: 4rem;
   font-size: 3.2rem;
   display: flex;
   justify-content: flex-end;
@@ -37,6 +38,7 @@
 
 .prevValue {
   width: 100%;
+  min-height: 2.2rem;
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
   text-align: left;

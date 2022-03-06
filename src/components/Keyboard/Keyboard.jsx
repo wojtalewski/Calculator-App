@@ -11,7 +11,7 @@ const Keyboard = () => {
       <Key value={'7'}>7</Key>
       <Key value={'8'}>8</Key>
       <Key value={'9'}>9</Key>
-      <Key del={'del'} value={'Backspace'}>
+      <Key del={'del'} value={'Delete'}>
         DEL
       </Key>
       <Key value={'4'}>4</Key>
