@@ -11,6 +11,7 @@ export const CalculatorProvider = ({ children }) => {
     prevValue: '',
     action: '',
     theme: theme || 'theme-one',
+    disabled: false,
   }
 
   const [state, dispatch] = useReducer(calculatorReducer, initialState)

@@ -32,7 +32,11 @@ const calculatorReducer = (state, action) => {
         ...state,
         theme: action.payload,
       }
-
+    case 'SET_DISABLED':
+      return {
+        ...state,
+        disabled: action.payload,
+      }
     default:
       return state
   }
