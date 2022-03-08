@@ -1,5 +1,10 @@
 // Calculate value
-export const calculate = (currentValue, prevValue, action) => {
+
+export const calculate = (
+  currentValue: string,
+  prevValue: string,
+  action: string
+) => {
   const num1 = +currentValue.replace(',', '.')
   const num2 = +prevValue.replace(',', '.')
 
@@ -19,19 +24,17 @@ export const calculate = (currentValue, prevValue, action) => {
     result = num2 / num1
   }
 
-  if (result !== divideError) {
-    result = result.toFixed(10) * 1
-  }
+  result = +result.toFixed(10) * 1
 
   return result.toString().replace('.', ',')
 }
 
 export const dispatchAction = (
-  currentValue,
-  prevValue,
-  action,
-  value,
-  dispatch
+  currentValue: string,
+  prevValue: string,
+  action: string,
+  value: string,
+  dispatch: Function
 ) => {
   switch (value) {
     case 'Delete':

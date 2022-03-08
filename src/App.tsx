@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CalculatorProvider } from './context/CalculatorContext'
 
 import Calculator from './components/Calculator/Calculator'

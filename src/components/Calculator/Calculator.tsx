@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import CalculatorContext from '../../context/CalculatorContext'
 
-const Calculator = ({ children }) => {
+const Calculator: React.FC = ({ children }) => {
   const { theme } = useContext(CalculatorContext)
 
   return (

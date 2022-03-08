@@ -23,12 +23,11 @@
 }
 
 .currentValue {
-  max-width: 100%;
   min-height: 4rem;
   font-size: 3.2rem;
+
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
   overflow: hidden;
 
   &-small {
@@ -37,7 +36,6 @@
 }
 
 .prevValue {
-  width: 100%;
   min-height: 2.2rem;
   font-size: 1.6rem;
   margin-bottom: 0.8rem;

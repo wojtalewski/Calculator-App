@@ -4,14 +4,27 @@ import useIsKeyPressed from '../../hooks/useIsKeyPressed'
 import CalculatorContext from '../../context/CalculatorContext'
 import dispatchAction from '../../context/calculatorActions'
 
-const Key = ({ children, del, value, disabled }) => {
+interface Props {
+  reset?: string
+  equals?: string
+  value: string
+  disabled?: boolean
+}
+
+const WideKey: React.FC<Props> = ({
+  children,
+  reset,
+  equals,
+  value,
+  disabled,
+}) => {
   const { theme, dispatch, currentValue, prevValue, action } =
     useContext(CalculatorContext)
 
   const { keyPressed, targetKey } = useIsKeyPressed(value)
 
-  const btnClass = `key key-${theme} key-${theme}-${del}`
-  const newBtnClass = `key key-${theme} key-${theme}-${del} key-${theme}-active`
+  const wideBtnClass = `wide-key wide-key-${theme} wide-key-${theme}-${reset} wide-key-${theme}-${equals}`
+  const newWideBtnClass = `wide-key wide-key-${theme} wide-key-${theme}-${reset} wide-key-${theme}-${equals} wide-key-${theme}-active wide-key-${theme}-${equals}-active`
 
   const handlePress = () => {
     return dispatchAction(currentValue, prevValue, action, value, dispatch)
@@ -19,13 +32,15 @@ const Key = ({ children, del, value, disabled }) => {
 
   useKeyPress(value, handlePress)
 
-  const handleClick = (value) => {
+  const handleClick = (value: string) => {
     dispatchAction(currentValue, prevValue, action, value, dispatch)
   }
 
   return (
     <button
-      className={keyPressed && targetKey === value ? newBtnClass : btnClass}
+      className={
+        keyPressed && targetKey === value ? newWideBtnClass : wideBtnClass
+      }
       onClick={() => handleClick(value)}
       disabled={disabled}
     >
@@ -34,4 +49,4 @@ const Key = ({ children, del, value, disabled }) => {
   )
 }
 
-export default Key
+export default WideKey
