@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import CalculatorContext from '../../context/CalculatorContext'
 
 const Header = () => {
   const { theme, dispatch } = useContext(CalculatorContext)
 
-  const setTheme = (e) => {
+  const setTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'SET_THEME', payload: e.target.value })
     localStorage.setItem('theme', e.target.value)
   }

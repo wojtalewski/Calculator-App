@@ -1,4 +1,18 @@
-const calculatorReducer = (state, action) => {
+import { InitialState } from './CalculatorContext'
+
+export type Action =
+  | { type: 'SET_VALUE'; payload: string }
+  | { type: 'SET_PREV_VALUE'; payload: string }
+  | { type: 'SET_ACTION'; payload: string }
+  | { type: 'DELETE'; payload: string }
+  | { type: 'CLEAR' }
+  | { type: 'SET_THEME'; payload: string }
+  | { type: 'SET_DISABLED'; payload: boolean }
+
+const calculatorReducer = (
+  state: InitialState,
+  action: Action
+): InitialState => {
   switch (action.type) {
     case 'SET_VALUE':
       return {

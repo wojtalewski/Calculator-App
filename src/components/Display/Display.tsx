@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import CalculatorContext from '../../context/CalculatorContext'
 
-const Display = () => {
+const Display: React.FC = () => {
   const { theme, currentValue, prevValue, action } =
     useContext(CalculatorContext)
 
