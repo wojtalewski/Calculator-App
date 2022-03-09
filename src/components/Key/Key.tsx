@@ -17,7 +17,7 @@ const Key: React.FC<Props> = ({ children, del, value, disabled }) => {
   const { keyPressed, targetKey } = useIsKeyPressed(value)
 
   const btnClass = `key key-${theme} key-${theme}-${del}`
-  const newBtnClass = `key key-${theme} key-${theme}-${del} keys-${theme}-active`
+  const newBtnClass = `key key-${theme} key-${theme}-${del} key-${theme}-active`
 
   const handlePress = () => {
     return dispatchAction(currentValue, prevValue, action, value, dispatch)
